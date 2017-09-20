@@ -1,65 +1,65 @@
-﻿import * as React from 'react';
-import QueryResult from '../interfaces/QueryItem'
+﻿import * as React from "react";
+import QueryResult from "../interfaces/QueryItem";
 
-interface ResultProperties {
+interface IResultProperties {
     item: QueryResult;
 }
 
-class Result extends React.Component<ResultProperties, {}> {
+class Result extends React.Component<IResultProperties, {}> {
     constructor() {
         super();
     }
 
-    public render() {
-        let result = this.props.item;
+    public render(): JSX.Element {
+        const { title, digest, url } = this.props.item;
 
         return <div>
-            <Title text={result.title} url={result.url} />
-            <Digest text={result.digest} />
-            <Source url={result.url} />
+            <Title text={title} url={url} />
+            <Digest text={digest} />
+            <Source url={url} />
         </div>;
     }
 }
 
-interface DigestProperties {
+interface IDigestProperties {
     text: string;
 }
 
-class Digest extends React.Component<DigestProperties, {}> {
+class Digest extends React.Component<IDigestProperties, {}> {
     constructor() {
         super();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return <p>{this.props.text}</p>;
     }
 }
 
-interface TitleProperties {
+interface ITitleProperties {
     text: string;
     url: string;
 }
 
-class Title extends React.Component<TitleProperties, {}> {
+class Title extends React.Component<ITitleProperties, {}> {
     constructor() {
         super();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return <h3><a href={this.props.url}>{this.props.text}</a></h3>;
     }
 }
 
-interface SourceProperties {
+interface ISourceProperties {
     url: string;
 }
 
-class Source extends React.Component<SourceProperties, {}> {
+class Source extends React.Component<ISourceProperties, {}> {
     constructor() {
         super();
     }
 
-    public render() {
+    public render(): JSX.Element {
         return <em>{this.props.url}</em>;
     }
 }

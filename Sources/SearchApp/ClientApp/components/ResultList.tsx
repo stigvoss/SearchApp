@@ -12,7 +12,7 @@ class ResultList extends React.Component<ResultListProperties, {}> {
     }
 
     public render() {
-        let items = this.props.items;
+        const items = this.props.items;
 
         return <div>
             {items.map(item =>

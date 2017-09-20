@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import ResultList from './ResultList';
-import SearchBar from './SearchBar';
-import QueryResult from '../interfaces/QueryItem'
+import * as React from "react";
+import { RouteComponentProps } from "react-router";
+import ResultList from "./ResultList";
+import SearchBar from "./SearchBar";
+import QueryResult from "../interfaces/QueryItem";
 
-interface SearchPageState {
+interface ISearchPageState {
     results: QueryResult[];
 }
 
-export class SearchPage extends React.Component<RouteComponentProps<{}>, SearchPageState> {
+export class SearchPage extends React.Component<RouteComponentProps<{}>, ISearchPageState> {
     constructor() {
         super();
 
@@ -19,7 +19,7 @@ export class SearchPage extends React.Component<RouteComponentProps<{}>, SearchP
         this.search = this.search.bind(this);
     }
 
-    public render() {
+    public render(): JSX.Element {
         return <div>
             <h1>Search</h1>
             <SearchBar onClick={this.search} />
@@ -28,7 +28,7 @@ export class SearchPage extends React.Component<RouteComponentProps<{}>, SearchP
     }
 
     private search(query: string): void {
-        let url = `/api/Search?query=${query}`;
+        const url: string = `/api/Search?query=${query}`;
 
         fetch(url)
             .then(response => response.json())

@@ -20,8 +20,8 @@ class SearchBar extends React.Component<SearchBarProperties, SearchBarState> {
     }
 
     public render() {
-        let onClick = this.props.onClick;
-        let query = this.state.query;
+        const onClick = this.props.onClick;
+        const query = this.state.query;
 
         return <div className="input-group">
             <TextField onChange={this.onChange} value={query} />
@@ -44,8 +44,8 @@ class TextField extends React.Component<TextFieldProperties, {}> {
     private _placeholder = "Enter query text...";
     
     public render() {
-        let placeholder = this.props.placeholder ? this.props.placeholder : this._placeholder;
-        let value = this.props.value;
+        const placeholder = this.props.placeholder ? this.props.placeholder : this._placeholder;
+        const value = this.props.value;
 
         return <input
             value={value}
@@ -66,8 +66,8 @@ interface ButtonProperties extends SearchBarProperties {
 
 class Button extends React.Component<ButtonProperties, {}> {
     public render() {
-        let onClick = this.props.onClick;
-        let query = this.props.query;
+        const onClick = this.props.onClick;
+        const query = this.props.query;
 
         return <span className="input-group-btn">
             <button onClick={(e) => onClick(query)} className="btn btn-primary">
